@@ -1,15 +1,21 @@
+version: '3'
+
 services:
   backend:
-    build:
-      context: .
-      dockerfile: Dockerfile_backend.dockerfile
-      target: backend
+    image: erinl168/quirknotes_backend:latest
     ports:
       - "4000:4000"
     environment:
       - ENV=Docker
     depends_on:
       - mongodb
+
+  frontend:
+    image: <your-epic-username>/quirknotes_frontend:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_BACKEND_URL=http://backend:4000
 
   mongodb:
     image: mongo:latest
