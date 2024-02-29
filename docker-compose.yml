@@ -11,7 +11,7 @@ services:
       - mongodb
 
   frontend:
-    image: <your-epic-username>/quirknotes_frontend:latest
+    image: erinl168/quirknotes_frontend:latest
     ports:
       - "3000:3000"
     environment:
